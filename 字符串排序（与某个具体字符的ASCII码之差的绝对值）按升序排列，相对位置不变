@@ -1,0 +1,61 @@
+String returnSortString(String string)
+	{
+		if(string == null || string.length() == 1)
+			return string;
+		char[] ch = string.toCharArray();
+		int i=0;
+		char baseChar = 'U';
+		int[] absNum = new int[ch.length];
+		for(i = 0; i < ch.length; i++)
+		{
+			absNum[i] = Math.abs(ch[i] - baseChar);
+		}
+		for(i = 1; i < absNum.length; i++)
+		{
+			int mark = absNum[i];
+			char mark_ = ch[i];
+			int j = i-1;
+			while(j>=0 && mark < absNum[j])
+			{
+				absNum[j+1] = absNum[j];
+				ch[j+1] = ch[j];
+				j--;
+			}
+			absNum[j+1] = mark;
+			ch[j+1] = mark_;
+		}
+		return new String(ch);
+	}
+  
+  //***********************************************************************
+  
+  static String returnSortString(String string)
+	{
+		if(string == null || string.length() == 1)
+			return string;
+		StringBuilder[] stringBuilders = new StringBuilder[256];
+		char[] ch = string.toCharArray();
+		int i=0;
+		char baseChar = 'U';
+		StringBuilder stringBuilder = new StringBuilder();
+		for(i = 0; i < ch.length; i++)
+		{
+			int absNum = Math.abs(ch[i]-baseChar);
+			stringBuilders[absNum] = new StringBuilder();
+		}
+		
+		for(i = 0; i < ch.length; i++)
+		{
+			int absNum = Math.abs(ch[i] - baseChar);
+			stringBuilders[absNum].append(ch[i]);
+		}
+		
+		for(i = 0; i < stringBuilders.length; i++)
+		{
+			if(stringBuilders[i] != null)
+			{
+				stringBuilder.append(stringBuilders[i]);
+			}
+		}
+		return stringBuilder.toString();
+	}
