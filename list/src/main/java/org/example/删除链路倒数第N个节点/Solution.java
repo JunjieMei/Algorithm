@@ -6,6 +6,16 @@ import org.example.翻转链表.LinkedList;
 public class Solution {
 
     /**
+     * todo O(n) 一次遍历处理
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEndV2(ListNode head, int n){
+        return null;
+    }
+
+    /**
      * V1 版本暴力解法
      * 先求链表长度
      * 将倒数转换为正数
