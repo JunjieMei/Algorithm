@@ -7,12 +7,41 @@ public class Solution {
 
     /**
      * todo O(n) 一次遍历处理
+     * 快慢指针
+     * 要删除节点N 必须找到节点N的钱一个节点
+     * N_pre.next = N_pre.next.next; 做删除动作
+     * 链表长度为l
+     * fast 先走n+1步
+     * n + 1 + x = fast
+     * x + n + 1 = slow
+     * 所以此时慢指针指向的是要删除节点的前一个节点，符合我们的要求
+     *
+     *
      * @param head
      * @param n
      * @return
      */
     public ListNode removeNthFromEndV2(ListNode head, int n){
-        return null;
+        ListNode dummy = new ListNode(-1,null);
+        dummy.next = head;
+        // 快指针
+        ListNode fast = dummy;
+        // 慢指针
+        ListNode slow = dummy;
+
+        // 快指针先动n+1步
+        while(fast != null){
+            fast=fast.next;
+            // 慢指针移动的条件是快指已经移动了n+1节点
+            if(n+1<=0){
+                slow = slow.next;
+            }
+            n--;
+
+        }
+        slow.next = slow.next.next;
+
+        return dummy.next;
     }
 
     /**
@@ -75,9 +104,12 @@ public class Solution {
         Solution solution = new Solution();
         System.out.println("delete before: ");
         System.out.println(linkedList.println(linkedList.head));
-        ListNode headAfterDelete = solution.removeNthFromEndV1(linkedList.head, 3);
+        ListNode headAfterDelete = solution.removeNthFromEndV2(linkedList.head, 1);
         System.out.println("delete after: ");
         System.out.println(linkedList.println(headAfterDelete));
+
+
+
 
     }
 }
