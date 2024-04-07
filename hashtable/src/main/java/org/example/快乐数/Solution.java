@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution {
+    private static final String trueFlag = "1";
 
     public boolean isHappy(int n) {
         String nStr = String.valueOf(n);
         Map<String,Integer> map = new HashMap<>();
         while (true){
-
             String s = transformSquare(nStr);
             // 判断是否无限循环，如果无限循环
-            if("1".equals(s)){
+            if(trueFlag.equals(s)){
                 return true;
             }else{
                 // 发生了循环则不是快乐数了
