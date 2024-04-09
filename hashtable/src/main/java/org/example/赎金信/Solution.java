@@ -16,7 +16,6 @@ public class Solution {
      * @return
      */
     public boolean canConstruct(String ransomNote, String magazine) {
-
         // 基于hashMap实现
         if(ransomNote == null || magazine == null){
             return false;
