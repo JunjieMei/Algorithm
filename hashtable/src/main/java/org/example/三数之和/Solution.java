@@ -31,12 +31,50 @@ public class Solution {
      */
 
 
+    public List<List<Integer>> threeSum(int[] nums){
+        List<List<Integer>> r = new ArrayList<>();
+        // 0.边界处理
+        if(nums == null || nums.length < 3){
+            return r;
+        }
+
+        // 1. nums排序
+        Arrays.sort(nums);
+
+        // todo 排序 + 双指针算法
+        //
+        int length = nums.length;
+
+        for(int i=0;i<length;i++){
+            // 如果排序后的第一个位置是大于0则三元组必然大于0
+            // 左指针
+            int left = i + 1;
+            // 右指针
+            int right = length - 1;
+            if(nums[i] > 0){
+                break;
+            }
+
+            if(nums[i] == nums[i+1]){
+                continue;
+            }
+
+
+
+
+        }
+
+        return r;
+    }
+
+
+
     /**
      * N2
      * @param nums
      * @return
      */
-    public  List<List<Integer>> threeSum(int[] nums){
+    public  List<List<Integer>> threeSumV2(int[] nums){
         List<List<Integer>> r = new ArrayList<>();
         Map<Integer,Byte> rDMap = new HashMap<>();
         Map<String,List<Integer>> rDRmap = new HashMap<>();
